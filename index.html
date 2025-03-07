@@ -1,0 +1,86 @@
+<!-- filepath: c:\Users\Alexander Saavedra\Restaurante\pedidorestaurante\index.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food-Delivery-Website</title>
+    <style>
+    html, body {
+       height: 100%;
+       margin: 0;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       background-image: url(fondowa.jpg);
+       background-size: cover;  
+       background-position: center; 
+        background-repeat: no-repeat; 
+      }
+      .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+      .login-form {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px; 
+        text-align: center;
+      }
+
+      .login-form input {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: left; }
+      .login-form button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .login-form button:hover {
+    background-color: #0056b3;
+}
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="login-container">
+        <div class="login-form">
+          <h2>Iniciar Sesión</h2>
+          <input type="text" id="username" placeholder="Usuario" required />
+          <input type="password" id="password" placeholder="Contraseña" required />
+          <button onclick="login()">Ingresar</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        if (username === 'admin' && password === 'admin') {
+          document.getElementById('root').innerHTML = '';
+          const script = document.createElement('script');
+          script.type = 'module';
+          script.src = '/src/main.jsx';
+          document.body.appendChild(script);
+        } else {
+          alert('Usuario o contraseña incorrectos');
+        }
+      }
+    </script>
+  </body>
+</html>
